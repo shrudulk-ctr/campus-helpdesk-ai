@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campus Helpdesk AI — Presidency University | TECHNOPIA 2.0</title>
+<meta name="description" content="AI-Powered University Campus Helpdesk for TECHNOPIA 2.0. Ask in natural language; answers only from the supplied university information.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">P</div>
+    <div>
+      <h1>Campus Helpdesk AI</h1>
+      <p>Presidency University &nbsp;•&nbsp; School of Computer Science &amp; Engineering</p>
+    </div>
+  </div>
+  <div class="badge">TECHNOPIA 2.0 &nbsp;•&nbsp; BUILD IT IN 60 MINUTES</div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h2>Ask about</h2>
+    <button class="cat" data-cat="academics"><span>🎓 Academics</span><span>›</span></button>
+    <button class="cat" data-cat="examinations"><span>📝 Examinations</span><span>›</span></button>
+    <button class="cat" data-cat="placements"><span>💼 Placements</span><span>›</span></button>
+    <button class="cat" data-cat="hostel"><span>🏠 Hostel</span><span>›</span></button>
+    <button class="cat" data-cat="library"><span>📚 Library</span><span>›</span></button>
+    <button class="cat" data-cat="administration"><span>🏛️ Administration</span><span>›</span></button>
+    <button class="cat" data-cat="attendance"><span>✅ Attendance</span><span>›</span></button>
+    <button class="cat" data-cat="events"><span>🎉 Events</span><span>›</span></button>
+
+    <div class="how">
+      <b>How the AI works</b><br>
+      1. Understands your question — tokenises, expands synonyms, removes stopwords.<br>
+      2. Retrieves — TF-IDF vectors + cosine similarity rank the supplied facts.<br>
+      3. Generates — composes the answer from the top fact only, with its source and confidence.<br>
+      4. Never invents — if a date, time or number isn't in the supplied information, it says so.
+      <details>
+        <summary>What the AI will not do</summary>
+        It will not make up exam dates, library timings, fees, phone numbers or any fact not in the supplied information. That is a hard rule in the code, not a prompt suggestion.
+      </details>
+    </div>
+  </aside>
+
+  <main class="chat-card">
+    <div class="chat-head">
+      <div class="avatar">🤖</div>
+      <div>
+        <h2>Ask the Campus Helpdesk</h2>
+        <p><span class="dot"></span>Online — answers from supplied university information only</p>
+      </div>
+    </div>
+
+    <div class="messages" id="messages" aria-live="polite"></div>
+
+    <div class="suggestions" id="suggestions"></div>
+
+    <div class="composer">
+      <input id="input" type="text" placeholder="Ask about academics, exams, placements, hostel, library…" autocomplete="off" aria-label="Ask a question">
+      <button id="send" type="button">Ask →</button>
+    </div>
+    <p class="disclaimer">⚠️ This prototype answers only from the sample university information in the TECHNOPIA 2.0 problem statement. It is sample competition data, not an official statement of university regulations. No API key is used or stored — the AI runs locally in your browser.</p>
+  </main>
+</div>
+
+<footer class="footer">
+  <b>TECHNOPIA 2.0 — AI-Powered University Campus Helpdesk.</b> Built in the 60-minute challenge window (10:30–11:30 AM, LG07).
+  AI: local semantic engine — TF-IDF + cosine-similarity retrieval over the supplied knowledge base, with grounded generation and a no-hallucination guard. No login, no database, no key in frontend code, as required.
+</footer>
+
+<script src="knowledge.js"></script>
+<script src="ai-engine.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
